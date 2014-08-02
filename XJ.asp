@@ -61,7 +61,7 @@ rs1.open sql,connstr,3,2
 if not rs1.eof then
     dw=rs1("dw")
     zg=rs1("zg")
-    zw=rs1("zw")
+    zw=rs1("QJRZW")
 end if
 rs1.close
 %>
@@ -105,7 +105,16 @@ rs1.close
        
       </tr>
       <%dim mc
-    sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' order by SQSJ "
+    	select case ZW
+		case "3"
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and dw='"&dw&"' order by SQSJ "
+		case "6"
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and zw=3 order by SQSJ "
+		case "7"
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and zw=3 order by SQSJ "
+		case "5"
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and zw=4 order by SQSJ "
+		end select
     set rs=server.createobject("adodb.recordset")
     rs.open sql,connstr,1,1
     if rs.eof then

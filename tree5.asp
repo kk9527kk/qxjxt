@@ -19,6 +19,7 @@
         d.add(1,0,'我的权限');
        	d.add(2,1,'休假申请','SQ.asp','休假申请','main');
     	d.add(3,1,'审批事项','SPjz.ASP','审批事项','main');
+		d.add(10,1,'销假处理','XJ.ASP','销假处理','main');
     	d.add(4,1,'查询全局职工','qjCX.asp','查询全局职工','main');
     	d.add(5,1,'查询本人','grcx.asp','本人文书查询','main');   
         d.add(6,1,'休假统计表','qjtj.asp','休假统计表','main');   
