@@ -1,0 +1,88 @@
+a{blr:expression(this.onFocus=this.blur());}
+a:link {color:#190552; text-decoration:none}
+a:active {color:#190552; text-decoration:none}
+a:visited {color:#29098A; text-decoration:none}
+a:hover {color:#29098A; text-decoration:underline}
+A:unknown
+{
+    TEXT-DECORATION: none
+}
+A.top:unknown
+{
+    TEXT-DECORATION: none
+}
+A.top:link
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none;
+    face: Arial
+}
+A.top:visited
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A.top:hover
+{
+    COLOR: red;
+    TEXT-DECORATION: none
+}
+body
+{
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial,ËÎÌו,verdana
+}
+TR
+{
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial,ËÎÌו,verdana
+}
+TD
+{
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    LINE-HEIGHT: 180%;
+    FONT-FAMILY: Arial,ËÎÌו,verdana
+}
+.FormText
+{
+    BORDER-RIGHT: #0066cc 1px solid;
+    BORDER-TOP: #0066cc 1px solid;
+    FONT-SIZE: 12px;
+    BORDER-LEFT: #0066cc 1px solid;
+    CURSOR: hand;
+    LINE-HEIGHT: 150%;
+    BORDER-BOTTOM: #0066cc 1px solid;
+    BACKGROUND-COLOR: #f1f5fa
+}
+.FormText1
+{
+    BORDER-RIGHT: #0066cc 1px solid;
+    BORDER-TOP: #0066cc 1px solid;
+    FONT-SIZE: 12px;
+    BORDER-LEFT: #0066cc 1px solid;
+    LINE-HEIGHT: 120%;
+    BORDER-BOTTOM: #0066cc 1px solid;
+    BACKGROUND-COLOR: #f1f5fa
+}
+.Form
+{
+    BORDER-RIGHT: #0066cc 1px solid;
+    BORDER-TOP: #0066cc 1px solid;
+    FONT-SIZE: 12px;
+    BORDER-LEFT: #0066cc 1px solid;
+    LINE-HEIGHT: 120%;
+    BORDER-BOTTOM: #0066cc 1px solid;
+    BACKGROUND-COLOR: #f1f5fa
+}
+BODY {
+SCROLLBAR-FACE-COLOR: #DEE3F7; 
+SCROLLBAR-HIGHLIGHT-COLOR: #DEE3F7; 
+SCROLLBAR-SHADOW-COLOR: #ffffff; 
+SCROLLBAR-ARROW-COLOR: #000000; 
+SCROLLBAR-DARKSHADOW-COLOR: #689ACE; 
+SCROLLBAR-BASE-COLOR: #689ACE; 
+}
+

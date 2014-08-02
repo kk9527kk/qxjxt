@@ -1,0 +1,185 @@
+
+<public:component>
+<public:attach event="ondocumentready" onevent="Init()" />
+<public:attach event="onclick" onevent="Click()" />
+<public:attach event="onmouseover" onevent="MouseOver()" />
+<public:attach event="onmouseout" onevent="MouseOut()" />
+<public:property name="load_id"/>
+<script language="JScript">
+var CurrentNode=null
+var loading="正在载入数据..."
+var unavaible="载入数据错误！"
+var serverURL="server.asp"
+var position="position.asp";
+var XSLSrc="deeptree.xsl"
+var icon={
+	close:'images/collapsed.gif',
+	open :'images/expanded.gif',
+	node :'images/endnode.gif'
+}
+for(i in icon){
+var imgsrc=icon[i]
+icon[i]=new Image()
+icon[i].src=imgsrc
+}
+var arr=[]
+var xsldom=new ActiveXObject("Microsoft.XMLDOM") 
+xsldom.async="false"
+xsldom.load(XSLSrc)
+
+function Init(){
+	element.innerHTML="<div id='Child0'>"+load(loading)+"</div>"
+	element.onselectstart=Function("return false")
+	element.oncontextmenu=Function("return false")
+	var loadid=element.load_id?element.load_id:0
+	InitXMLTree(loadid)
+}
+
+/*******************************
+*******InitXMLTree(id)**********
+*******************************/
+function InitXMLTree(id){
+	var xmlh=new ActiveXObject("Microsoft.XMLHTTP")
+	xmlh.onreadystatechange=function(){
+	if(xmlh.readyState==4){
+		if(xmlh.status==200){
+		var root=xmlh.responseXML.documentElement
+		if(root.hasChildNodes()){
+		arr.push(id)
+		var node=root.selectNodes("node")
+		for(i=0;i<node.length;i++)
+		arr.push(node[i].text)
+		}
+		if(arr.length>0)GetXML(arr.pop())
+		else GetXML(0)
+		}
+		else element.document.all("Child0").innerHTML=load(unavaible)
+	}
+}
+xmlh.open("GET",position+"?id="+id+"&tem="+Math.random(),true)
+xmlh.send()
+}
+/**********End function********/
+
+/*****Main Function******
+*****GetXML(id)***
+**********************/
+function GetXML(id){
+	var objChild=element.document.all("Child"+id)
+	objChild.send=true
+	var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+	xmlhttp.onreadystatechange=function(){
+		if(xmlhttp.readyState==4){
+			if(xmlhttp.status==200){
+			var root=xmlhttp.responseXML.documentElement
+			if(root!=null&&root.hasChildNodes()){
+			if(xsldom.xml==''){objChild.innerHTML=load(unavaible);return}
+			objChild.innerHTML=xmlhttp.responseXML.transformNode(xsldom)
+			objChild.load=true
+			if(arr.length>0){
+			var loadid=arr.pop()
+			if(arr.length==0){
+			if(element.document.all("Child"+loadid))expandNode(loadid)
+			HighLight(element.document.all("Node"+loadid))
+			}
+			else
+			expandNode(loadid)
+			}
+			}
+			else objChild.innerHTML=load(unavaible)
+			}
+			else objChild.innerHTML=load(unavaible)
+		}
+	}
+	xmlhttp.open("GET",serverURL+"?id="+id+"&temp="+Math.random(),true)
+	xmlhttp.send()
+}
+/********end*********/
+
+
+function load(type){
+return "<div class='Node'><nobr><img src='"+icon.node.src+"' align='absmiddle'><span class='NodeLoad'>"+type+"</span></nobr></div>"
+}
+
+/******Mouse Event********
+************************/
+function MouseOver(){
+var o=event.srcElement;
+if(o.type!="Node")return;
+o.className='MouseOver'
+}
+
+function MouseOut(){
+var o=event.srcElement;
+if(o.type!="Node")return;
+o.className=CurrentNode==o?'NodeFocus':''
+}
+
+function Click(){
+	var obj=event.srcElement;
+	var id;
+	if(obj.type=="Node"||obj.type=="icon")id=obj.parentElement.parentElement.getAttribute("uid")
+	else return;
+	var objNode=element.document.all("Node"+id)
+	var objChild=element.document.all("Child"+id)
+	if(obj.type=="icon")
+	if(!objChild){HighLight(objNode);return;}
+	if(obj.type=="Node")HighLight(obj)
+	if(objChild){
+	var flag=objChild.style.display==''?1:0
+	if(flag)collapseNode(id)
+	else expandNode(id)
+	}
+}
+/*********end***********/
+
+/***expandNode and collapseNode***
+*******************************/
+function expandNode(id){
+	var objIcon=element.document.all("icon"+id)
+	var objChild=element.document.all("Child"+id)
+	objChild.style.display="";
+	objIcon.src=icon.open.src
+	if(!objChild.send&&!objChild.load)GetXML(id)
+}
+
+function collapseNode(id){
+	var objIcon=element.document.all("icon"+id)
+	var objChild=element.document.all("Child"+id)
+	objChild.style.display="none"
+	objIcon.src=icon.close.src
+}
+/**********end******************/
+
+/*******************************
+*********HighLight(o)***********
+*******************************/
+function HighLight(o){
+if(!CurrentNode)CurrentNode=o;
+CurrentNode.className='';o.className='NodeFocus';CurrentNode=o
+var url=o.getAttribute("url")
+var target=o.getAttribute("target")
+if(url)window.open(url,target)
+window.status=o.innerText;
+}
+/************end**************/
+
+/*********Array***********/
+if(Array.prototype.push==null)
+Array.prototype.push = Push;
+function Push(){
+	var ar=[];
+	for (var i=0;i<arguments.length;i++) this[this.length]=arguments[i];
+	return this.length;
+}
+
+if(Array.prototype.pop==null)
+Array.prototype.pop = Pop;
+function Pop(){
+	var rs=this[this.length-1];
+	this.length = this.length-1;
+	return rs;
+}
+/*********Array***********/
+</script>
+</public:component>

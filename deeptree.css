@@ -1,0 +1,48 @@
+body{
+font-size:12px;
+SCROLLBAR-FACE-COLOR: #DEE3F7; 
+SCROLLBAR-HIGHLIGHT-COLOR: #DEE3F7; 
+SCROLLBAR-SHADOW-COLOR: #ffffff; 
+SCROLLBAR-ARROW-COLOR: #000000; 
+SCROLLBAR-DARKSHADOW-COLOR: #555555; 
+SCROLLBAR-BASE-COLOR: #555555; 
+}
+
+.deeptree{
+width:100%;
+behavior:url(deeptree.htc)
+}
+
+.Node{
+width:1px;
+margin:1px;
+}
+
+span{
+height:17px;
+border:1px solid #FFFFFF;
+padding:2 4;
+cursor:hand;
+margin-left:3px;
+font-size:12px;
+font-family:Verdana;
+}
+
+
+span.NodeLoad{
+background-color:#99ccff;
+color:infotext;
+filter:alpha(opacity=50);
+cursor:default
+}
+
+span.MouseOver{
+background-color:#d2e8ff;
+border:1px solid #6699cc
+}
+
+span.NodeFocus{
+background-color:highlight;
+border:1px solid #000000;
+color:highlighttext;
+}

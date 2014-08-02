@@ -1,0 +1,18 @@
+TD {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "MS Shell Dlg"; LETTER-SPACING: 1px
+}
+A.4:link {
+	COLOR: #000000; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+A.4:visited {
+	COLOR: #000000; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+A.4:hover {
+	COLOR: #666666; LETTER-SPACING: 1px; TEXT-DECORATION: none
+}
+.style10 {
+	COLOR: #ff9900
+}
+.style8 {
+	COLOR: #cc0000; FONT-FAMILY: Georgia, Times New Roman, Times, serif
+}
