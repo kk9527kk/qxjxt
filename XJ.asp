@@ -61,7 +61,7 @@ rs1.open sql,connstr,3,2
 if not rs1.eof then
     dw=rs1("dw")
     zg=rs1("zg")
-    zw=rs1("QJRZW")
+    zw=rs1("ZW")
 end if
 rs1.close
 %>
