@@ -109,11 +109,11 @@ rs1.close
 		case "3"
 			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and dw='"&dw&"' order by SQSJ "
 		case "6"
-			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and zw=3 order by SQSJ "
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and qjrzw='3' order by SQSJ "
 		case "7"
-			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and zw=3 order by SQSJ "
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and qjrzw='3' order by SQSJ "
 		case "5"
-			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and zw=4 order by SQSJ "
+			sql="select *  from QXJDJB WHERE (QJZT='5' OR QJZT='6' OR QJZT='7') AND ZGZT='1' and qjrzw='4' order by SQSJ "
 		end select
     set rs=server.createobject("adodb.recordset")
     rs.open sql,connstr,1,1
