@@ -48,7 +48,7 @@ rs("DWrq")=date()
 if ks="1" then
 	if rs("QJRZW") = "1"  and  rs("ts") <= 3  and rs("SFLFJ") = "NO" then
 		rs("QJzt")="10"
-		rs("ZGZT") = "1"
+		rs("ZGZT") = "2"
 		rs.update
 		response.write "<script language=JavaScript>{window.alert('…Í«Î“—æ≠÷’…Û!');window.location.href='Sp.asp';}</script>"
 		response.end	
